@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var cont = 0
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            Image("color").resizable().scaledToFill().ignoresSafeArea()
+            
+            VStack {
+                Text("\(cont)").foregroundStyle(.white)
+                
+                Image("banana").resizable().frame(width: 250, height: 200).onTapGesture {
+                    cont += 1
+                }
+            }
         }
-        .padding()
     }
 }
 
